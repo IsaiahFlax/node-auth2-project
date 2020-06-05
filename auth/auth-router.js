@@ -66,7 +66,7 @@ function generateToken(user) {
         username: user.username,
         role: user.role
     }
-    const option = {
+    const options = {
         expiresIn: "2h"
     }
 
