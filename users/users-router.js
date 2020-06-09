@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const Users = require("./users-model.js");
 const restricted = require("../auth/restricted-middleware.js");
-const checkRole = require('../auth/check-role-middleware.js');
+//const checkRole = require('../auth/check-role-middleware.js');
 
 //----------------------------------------------------------------------------//
 // This is where we use checkRole(). "1" is the ID for the "Admin" role. Calling
@@ -10,7 +10,7 @@ const checkRole = require('../auth/check-role-middleware.js');
 // decoded token on the req object has a "role" property, and 2, if that
 // property has the value of "1". 
 //----------------------------------------------------------------------------//
-router.get("/", restricted, checkRole(1), (req, res) => {
+router.get("/", restricted, (req, res) => {
   Users.find()
     .then(users => {
       res.status(200).json(users);
